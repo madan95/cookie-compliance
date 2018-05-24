@@ -1,0 +1,99 @@
+.cookie-container-div-fixed{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+
+    transition-delay: 0.25s;
+    transition-duration: 500ms;
+    font-size: 14px;
+
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s
+}
+
+.cookie-container-div-fixed>div{
+    min-height: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    margin: 0 auto;
+    max-width: 1090px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+
+    justify-content: center;
+    flex: 1 auto;
+    flex-flow: row nowrap;
+
+    display: flex;
+}
+
+
+.cookie-text-container{
+    display: block;
+    flex: none;
+    position: relative;
+}
+
+
+.cookie-text-container>p{
+    color: white;
+}
+
+
+
+.cookie-buttons-container{
+    display: block;
+    flex: none;
+}
+
+
+
+.cookie-buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.cookie-buttons>.cookie-button-ok{
+    margin-left: 12px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.cookie-buttons>.cookie-button-more{
+    margin-left: 12px;
+    display: block;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+.ctcc-inner{
+    color: white;
+}
+.ctcc-inner>span>a{
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.ctcc-inner>span>a:hover{
+    text-decoration: none;
+}
+
+.ctcc-right-side{
+    margin-left: 18px;
+    color: black;
+}

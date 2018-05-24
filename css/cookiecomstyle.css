@@ -1,0 +1,81 @@
+.cookie-container-div-fixed{
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+
+    transition-delay: 0.5s;
+    transition-duration: 500ms;
+
+}
+
+.cookie-container-div-fixed>div{
+    min-height: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+
+    margin: 0 auto;
+    padding: 32px 15px;
+    max-width: 1090px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+
+    justify-content: space-between;
+    flex: 1 auto;
+    flex-flow: row nowrap;
+
+    display: flex;
+}
+
+
+.cookie-text-container{
+    display: block;
+    flex: none;
+    flex-basis: 60%;
+    max-width: 60%;
+    position: relative;
+}
+
+
+.cookie-text-container>p{
+    color: white;
+    line-height: 0;
+}
+
+
+
+.cookie-buttons-container{
+    display: block;
+    flex: none;
+    flex-basis: 40%;
+    max-width: 40%;
+}
+
+
+
+.cookie-buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.cookie-buttons>.cookie-button-ok{
+    margin-left: 2px;
+    background-color: white;
+}
+
+.cookie-buttons>.cookie-button-more{
+    margin-left: 2px;
+    display: block;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    color: black;
+}
+
+
