@@ -1,0 +1,111 @@
+.ctcc-inner>span>a,
+.ctcc-inner>span>a:hover {
+    text-decoration: none
+}
+
+.cookie-container-div-fixed {
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    font-size: 14px;
+    -webkit-transition: all .25s;
+    transition: all .25s
+}
+
+.cookie-container-div-fixed>div {
+    background-color: #000;
+    min-height: 0;
+    margin: 0 auto;
+    max-width: 1090px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    flex: 1 auto;
+    flex-flow: row nowrap;
+    display: flex;
+    padding: 12px 5px
+}
+
+.cookie-text-container {
+    display: block;
+    flex: none;
+    position: relative
+}
+
+.cookie-text-container>p {
+    color: #fff
+}
+
+.cookie-buttons-container {
+    display: block;
+    flex: none
+}
+
+.cookie-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center
+}
+
+button#cookie-button-ok {
+    font-family: arial, sans-serif, serif;
+    font-size: 12px;
+    height: 23px;
+    width: 150px;
+    min-height: initial;
+    padding: 0 7px;
+    color: #000;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 0 #000
+}
+
+.cookie-buttons>.cookie-button-ok {
+    margin-left: 12px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #000;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 0 #000
+}
+
+.cookie-buttons>.cookie-button-more {
+    margin-left: 12px;
+    display: block;
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px
+}
+
+.ctcc-inner {
+    font-family: arial, sans-serif, serif;
+    color: #fff;
+    background-color: #000
+}
+
+.ctcc-inner>span {
+    color: #fff;
+    line-height: 20px
+}
+
+.ctcc-inner>span>a {
+    padding-left: 3px;
+    padding-right: 0;
+    color: #fff;
+    font-weight: 600;
+    text-align: center
+}
+
+.ctcc-right-side {
+    margin-left: 18px;
+    color: #000
+}

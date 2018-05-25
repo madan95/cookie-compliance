@@ -17,34 +17,31 @@
 
         //default settings
         var defaults = {
-            class_prefix: 'heniwalksoverthewall-',
-            content: 'This websites uses cookie',
+            content: 'This site uses cookiess: <a href="/cookies"> Find out more.</a>',
             cookie_days: 365, //1 year long to store cookie for,
-            cookie_name: 'heniwalksoverthewall',
+            cookie_name: 'heniwalksoverthewallcookie',
             cookie_value: 'cookiecreated',
-            read_more_link: '#',
-            opacity: '1'
+            read_more_link: "/cookie",
+            opacity: '1',
+            ok_button_text: 'Accept cookie policy',
+            read_more_button_text: 'Read More'
         }
 
         //use user options if available
         if (arguments[0] && typeof arguments[0] === "object") {
-            this.options = extendDefaults(defaults, arguments[0]);
+            options = extendDefaults(defaults, arguments[0]);
         }
 
 
-
+        //check if cookie is alredy accpeted
         var user = getCookie(options.cookie_name);
-        console.log(user);
         if (user != "") {
-            console.log('cookie set');
+            //cookie already accpeted
         } else {
-            console.log('cookie not set');
-            initiliazeElements(options.content);
+            //create cookie compliance
+            initiliazeElements();
 
         }
-
-
-
 
         //extend default options with user options if it exist
         function extendDefaults(source, properties) {
@@ -57,19 +54,18 @@
             return source;
         }
 
+        //creates elements needed for cookie compliance
+        function initiliazeElements() {
 
-        function initiliazeElements(content) {
             // var content, docFrag, contentHolder;
-
-               /*     if(typeof  options.content === "string"){
-                        content = options.content;
-                    }else{
-                        content = options.content.innerHTML;
-                    }
-            */
+            /*     if(typeof  options.content === "string"){
+                     content = options.content;
+                 }else{
+                     content = options.content.innerHTML;
+                 }
+         */
             //prefex needed for elements
             //var PREFIX_CLASS_NAME = this.options.class_prefix;
-            console.log(content);
 
 
             docFrag = document.createDocumentFragment();
@@ -81,52 +77,76 @@
             this.cookie_container_div = document.createElement('div');
             this.cookie_container_div_fixed.appendChild(this.cookie_container_div);
             this.cookie_container_div_fixed.style.opacity = options.opacity;
-            //text container
-            this.cookie_text_container = document.createElement('div');
-            this.cookie_text_container.className = 'cookie-text-container';
-            this.cookie_container_div.appendChild(this.cookie_text_container);
 
-            this.cookie_text = document.createElement('p');
-            this.cookie_text_container.appendChild(this.cookie_text);
-            this.cookie_text.innerHTML = content;
+            /*  //text container
+              this.cookie_text_container = document.createElement('div');
+              this.cookie_text_container.className = 'cookie-text-container';
+              this.cookie_container_div.appendChild(this.cookie_text_container);
 
-            //cookie buttons
-            this.cookie_buttons_container = document.createElement('div');
-            this.cookie_buttons_container.className = 'cookie-buttons-container';
-            this.cookie_container_div.appendChild(this.cookie_buttons_container);
+              this.cookie_text = document.createElement('p');
+              this.cookie_text_container.appendChild(this.cookie_text);
+              this.cookie_text.innerHTML = options.content;
 
-            this.cookie_button_ok = document.createElement('button');
-            this.cookie_button_ok.className = 'cookie-button-ok';
-            this.cookie_button_ok.innerHTML = 'Okay, thanks';
+              //cookie buttons
+              this.cookie_buttons_container = document.createElement('div');
+              this.cookie_buttons_container.className = 'cookie-buttons-container';
+              this.cookie_container_div.appendChild(this.cookie_buttons_container);
 
-            this.cookie_button_more = document.createElement('button');
+              this.cookie_button_ok = document.createElement('button');
+              this.cookie_button_ok.className = 'cookie-button-ok';
+              this.cookie_button_ok.innerHTML = options.ok_button_text;
+              */
+
+            this.cookie_container_div.innerHTML = '<div class="ctcc-inner ">' +
+                '<span class="ctcc-left-side">' +
+                options.content +
+                '</span>' +
+                '<span class="ctcc-right-side">' +
+                '<button id="cookie-button-ok" tabindex="0" >' +
+                options.ok_button_text +
+                '</button>' +
+                '</span>' +
+                '</div>';
+            /*
+            this.cookie_button_more = document.createElement('a');
             this.cookie_button_more.className = 'cookie-button-more';
-            this.cookie_button_more.innerHTML = 'Read More';
+            this.cookie_button_more.innerHTML = options.read_more_button_text;
+            this.cookie_button_more.href = options.read_more_link;
+               */
 
-            this.cookie_buttons = document.createElement('div');
-            this.cookie_buttons.className = 'cookie-buttons';
+            //  this.cookie_buttons = document.createElement('div');
+            //  this.cookie_buttons.className = 'cookie-buttons';
 
-            this.cookie_buttons_container.appendChild(this.cookie_buttons);
+            //    this.cookie_buttons_container.appendChild(this.cookie_buttons);
 
-            this.cookie_buttons.appendChild(this.cookie_button_ok);
-            this.cookie_buttons.appendChild(this.cookie_button_more);
+            //     this.cookie_buttons.appendChild(this.cookie_button_ok);
+            //   this.cookie_buttons.appendChild(this.cookie_button_more);
 
-            this.cookie_button_ok.addEventListener('click', function () {
-                console.log('button ok clicked');
-                 setCookie(options.cookie_name, options.cookie_value, options.cookie_days);
-                cookie_container_div_fixed.style.opacity = 0;
-            });
+
+            //on ok button clicked, set cookie for that browser
+
+            //   this.cookie_button_ok.addEventListener('click', function () {
+            //        setCookie(options.cookie_name, options.cookie_value, options.cookie_days);
+            //      cookie_container_div_fixed.style.opacity = 0;
+            //   });
+
 
             docFrag.appendChild(this.cookie_container_div_fixed);
 
             document.body.appendChild(docFrag);
+
+            var btn = document.getElementById('cookie-button-ok');
+            btn.addEventListener('click', function () {
+                setCookie(options.cookie_name, options.cookie_value, options.cookie_days);
+                cookie_container_div_fixed.style.opacity = 0;
+            });
         }
 
-        function buttonListener() {
-
-        }
 
 
+
+
+        //set cookie
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -134,6 +154,8 @@
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
 
+
+        //get cookie
         function getCookie(cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
@@ -154,3 +176,8 @@
     }
 
 }());
+
+//document.addEventListener('DOMContentLoaded', function () {
+//   console.log('something in the rain');
+// var myCookie = new Modalcookie({content: 'ok, this website is not using cookie <a href="#">dfd</a>', opacity: 0.7});
+//});
